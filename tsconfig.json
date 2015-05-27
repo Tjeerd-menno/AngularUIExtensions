@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "out": "dist/dfz-angular-uiextensions.js",
+        "sourceMap": true
+    },
+    "files": [
+        "Helpers.ts",
+        "Notification/NotificationService.ts",
+        "Notification/NotificationController.ts",
+        "UIExtensionsModule.ts"
+    ]
+}

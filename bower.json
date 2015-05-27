@@ -1,0 +1,28 @@
+{
+  "name": "DFZ.Web.Packages.AngularUIExtensions",
+  "version": "1.0.0",
+  "authors": [
+    "Tjeerd-menno Douma <tjeerd.menno@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".settings",
+    "node_modules",
+    "bower_components",
+    "typings",
+    "test",
+    "tests",
+    "tsconfig.json",
+    "tsd.json",
+    "*.ts"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "jquery": "~2.1.4",
+    "angular-ui-bootstrap": "~0.13.0"
+  }
+}
