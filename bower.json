@@ -18,8 +18,7 @@
     "test",
     "tests",
     "tsconfig.json",
-    "tsd.json",
-    "*.ts"
+    "tsd.json"
   ],
   "dependencies": {
     "angular": "~1.4.0",

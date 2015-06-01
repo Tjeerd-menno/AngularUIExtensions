@@ -7,11 +7,11 @@
         "sourceMap": true
     },
     "files": [
-        "Helpers.ts",
-        "Notification/NotificationService.ts",
-        "Notification/NotificationController.ts",
-        "LoadingIndicator/LoadingIndicatorService.ts",
-        "HttpInterceptor/HttpInterceptorFactory.ts",
-        "UIExtensionsModule.ts"
+        "src/Helpers.ts",
+        "src/Notification/NotificationService.ts",
+        "src/Notification/NotificationController.ts",
+        "src/LoadingIndicator/LoadingIndicatorService.ts",
+        "src/HttpInterceptor/HttpInterceptorFactory.ts",
+        "src/UIExtensionsModule.ts"
     ]
 }
