@@ -10,7 +10,6 @@ var UIExtensions;
     }
     UIExtensions.padLeft = padLeft;
 })(UIExtensions || (UIExtensions = {}));
-/// <reference path="../typings/tsd.d.ts" />
 var UIExtensions;
 (function (UIExtensions) {
     "use strict";
@@ -51,7 +50,6 @@ var UIExtensions;
     })();
     UIExtensions.NotificationService = NotificationService;
 })(UIExtensions || (UIExtensions = {}));
-/// <reference path="../typings/tsd.d.ts" />
 var UIExtensions;
 (function (UIExtensions) {
     'use strict';
@@ -94,12 +92,10 @@ var UIExtensions;
     })();
     UIExtensions.NotificationController = NotificationController;
 })(UIExtensions || (UIExtensions = {}));
-/// <reference path="typings/tsd.d.ts" />
 var UIExtensions;
 (function (UIExtensions) {
     "use strict";
-    var uiExtensionsModule = angular.module("UIExtensionsModule", ["ngAnimate", "ngRoute"]);
+    var uiExtensionsModule = angular.module("UIExtensionsModule", ["ui.bootstrap"]);
     uiExtensionsModule.controller("NotificationController", UIExtensions.NotificationController.$inject);
     uiExtensionsModule.service("NotificationService", UIExtensions.NotificationService.$inject);
 })(UIExtensions || (UIExtensions = {}));
-//# sourceMappingURL=dfz-angular-uiextensions.js.map
