@@ -14,7 +14,7 @@ module UIExtensions {
         INTERNAL_SERVER_ERROR: number;
     }
 	
-    export class HttpInterceptorFactory {
+    class HttpInterceptorFactory {
         
         public static $inject = [ "$q",
         "HTTP_STATUS_CODES",
@@ -56,4 +56,5 @@ module UIExtensions {
         }
     }
 
+    angular.module("UIExtensionsModule").factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
 }

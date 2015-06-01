@@ -10,7 +10,7 @@ module UIExtensions {
         cancel: Function;
     }
 
-    export class NotificationController {
+    class NotificationController {
 
         public static $inject = [
             '$scope',
@@ -51,4 +51,7 @@ module UIExtensions {
             this.$modalInstance.dismiss('cancel');
         }
     }
+    
+        angular.module("UIExtensionsModule").controller("NotificationController", NotificationController.$inject);
+
 }

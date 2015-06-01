@@ -48,7 +48,7 @@ var UIExtensions;
         ];
         return NotificationService;
     })();
-    UIExtensions.NotificationService = NotificationService;
+    angular.module("UIExtensionsModule").service("NotificationService", NotificationService.$inject);
 })(UIExtensions || (UIExtensions = {}));
 var UIExtensions;
 (function (UIExtensions) {
@@ -90,7 +90,7 @@ var UIExtensions;
         ];
         return NotificationController;
     })();
-    UIExtensions.NotificationController = NotificationController;
+    angular.module("UIExtensionsModule").controller("NotificationController", NotificationController.$inject);
 })(UIExtensions || (UIExtensions = {}));
 var UIExtensions;
 (function (UIExtensions) {
@@ -108,7 +108,7 @@ var UIExtensions;
         LoadingIndicatorService.$inject = ['$rootScope', LoadingIndicatorService];
         return LoadingIndicatorService;
     })();
-    UIExtensions.LoadingIndicatorService = LoadingIndicatorService;
+    angular.module("UIExtensionsModule").service("LoadingIndicatorService", LoadingIndicatorService.$inject);
 })(UIExtensions || (UIExtensions = {}));
 var UIExtensions;
 (function (UIExtensions) {
@@ -144,14 +144,10 @@ var UIExtensions;
         HttpInterceptorFactory.$inject = ["$q", "HTTP_STATUS_CODES", "$injector", "$window", HttpInterceptorFactory];
         return HttpInterceptorFactory;
     })();
-    UIExtensions.HttpInterceptorFactory = HttpInterceptorFactory;
+    angular.module("UIExtensionsModule").factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
 })(UIExtensions || (UIExtensions = {}));
 var UIExtensions;
 (function (UIExtensions) {
     "use strict";
-    var uiExtensionsModule = angular.module("UIExtensionsModule", ["ui.bootstrap"]);
-    uiExtensionsModule.controller("NotificationController", UIExtensions.NotificationController.$inject);
-    uiExtensionsModule.service("NotificationService", UIExtensions.NotificationService.$inject);
-    uiExtensionsModule.service("LoadingIndicatorService", UIExtensions.LoadingIndicatorService.$inject);
-    uiExtensionsModule.factory("HttpInterceptorFactory", UIExtensions.HttpInterceptorFactory.$inject);
+    angular.module("UIExtensionsModule", ["ui.bootstrap"]);
 })(UIExtensions || (UIExtensions = {}));

@@ -20,7 +20,7 @@ module UIExtensions {
         showNotification(title: string, message: string, force?: boolean): ng.ui.bootstrap.IModalServiceInstance;    
     }
     
-    export class NotificationService implements INotificationService {
+    class NotificationService implements INotificationService {
 
         public static $inject = [
             '$modal',
@@ -51,5 +51,8 @@ module UIExtensions {
             };
 
             return this.$modal.open(modalSettings);
-        }    }
+        }    
+    }
+    
+    angular.module("UIExtensionsModule").service("NotificationService", NotificationService.$inject);
 }

@@ -10,7 +10,7 @@ module UIExtensions {
         stopLoading(section: string): void;
     }
 
-    export class LoadingIndicatorService implements ILoadingIndicatorService {
+    class LoadingIndicatorService implements ILoadingIndicatorService {
         
         public static $inject = ['$rootScope', LoadingIndicatorService];
 
@@ -24,7 +24,7 @@ module UIExtensions {
         public stopLoading(section: string): void {
             this.$rootScope.$broadcast('STOP-LOADING', section);
         }
-
     }
-	
+
+    angular.module("UIExtensionsModule").service("LoadingIndicatorService", LoadingIndicatorService.$inject);
 }
