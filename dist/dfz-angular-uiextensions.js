@@ -95,7 +95,63 @@ var UIExtensions;
 var UIExtensions;
 (function (UIExtensions) {
     "use strict";
+    var LoadingIndicatorService = (function () {
+        function LoadingIndicatorService($rootScope) {
+            this.$rootScope = $rootScope;
+        }
+        LoadingIndicatorService.prototype.startLoading = function (section) {
+            this.$rootScope.$broadcast('START-LOADING', section);
+        };
+        LoadingIndicatorService.prototype.stopLoading = function (section) {
+            this.$rootScope.$broadcast('STOP-LOADING', section);
+        };
+        LoadingIndicatorService.$inject = ['$rootScope', LoadingIndicatorService];
+        return LoadingIndicatorService;
+    })();
+    UIExtensions.LoadingIndicatorService = LoadingIndicatorService;
+})(UIExtensions || (UIExtensions = {}));
+var UIExtensions;
+(function (UIExtensions) {
+    'use strict';
+    var HttpInterceptorFactory = (function () {
+        function HttpInterceptorFactory($q, httpStatusCode, $injector) {
+            return {
+                responseError: function (response) {
+                    var status = response.status;
+                    var message = response.data.Message;
+                    var notificationService = $injector.get('NotificationService');
+                    var windowService = $injector.get('$window');
+                    switch (status) {
+                        case httpStatusCode.INTERNAL_SERVER_ERROR:
+                            notificationService.showNotification('Er ging iets fout', message);
+                            break;
+                        case httpStatusCode.BAD_REQUEST:
+                            notificationService.showNotification('Ongeldige invoer', message);
+                            break;
+                        case httpStatusCode.FORBIDDEN:
+                            var data = angular.fromJson(response.data);
+                            if (data !== undefined && data !== null && data.LogOnUrl !== undefined) {
+                                windowService.location.href = data.LogOnUrl;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    return $q.reject(response);
+                }
+            };
+        }
+        HttpInterceptorFactory.$inject = ["$q", "HTTP_STATUS_CODES", "$injector", "$window", HttpInterceptorFactory];
+        return HttpInterceptorFactory;
+    })();
+    UIExtensions.HttpInterceptorFactory = HttpInterceptorFactory;
+})(UIExtensions || (UIExtensions = {}));
+var UIExtensions;
+(function (UIExtensions) {
+    "use strict";
     var uiExtensionsModule = angular.module("UIExtensionsModule", ["ui.bootstrap"]);
     uiExtensionsModule.controller("NotificationController", UIExtensions.NotificationController.$inject);
     uiExtensionsModule.service("NotificationService", UIExtensions.NotificationService.$inject);
+    uiExtensionsModule.service("LoadingIndicatorService", UIExtensions.LoadingIndicatorService.$inject);
+    uiExtensionsModule.factory("HttpInterceptorFactory", UIExtensions.HttpInterceptorFactory.$inject);
 })(UIExtensions || (UIExtensions = {}));

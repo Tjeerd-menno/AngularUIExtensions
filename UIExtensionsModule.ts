@@ -8,5 +8,7 @@ module UIExtensions {
 
     uiExtensionsModule.controller("NotificationController", NotificationController.$inject);
     uiExtensionsModule.service("NotificationService", NotificationService.$inject);
+    uiExtensionsModule.service("LoadingIndicatorService", LoadingIndicatorService.$inject);
+    uiExtensionsModule.factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
 }
 

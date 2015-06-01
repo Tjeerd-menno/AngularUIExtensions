@@ -11,6 +11,8 @@
         "Helpers.ts",
         "Notification/NotificationService.ts",
         "Notification/NotificationController.ts",
+        "LoadingIndicator/LoadingIndicatorService.ts",
+        "HttpInterceptor/HttpInterceptorFactory.ts",
         "UIExtensionsModule.ts"
     ]
 }
