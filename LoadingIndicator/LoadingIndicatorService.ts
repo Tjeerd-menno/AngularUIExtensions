@@ -9,7 +9,7 @@ module UIExtensions {
         startLoading(section: string) : void;    
         stopLoading(section: string): void;
     }
-    
+
     export class LoadingIndicatorService implements ILoadingIndicatorService {
         
         public static $inject = ['$rootScope', LoadingIndicatorService];
