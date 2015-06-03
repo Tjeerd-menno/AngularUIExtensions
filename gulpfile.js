@@ -5,8 +5,6 @@ var rename = require('gulp-rename');
 var typescript = require('gulp-typescript');
 var runSequence = require('run-sequence');
 var del = require('del');
-var merge = require('merge2');
-
 
 gulp.task('clean', function () {
     del.sync(['dist/*.*']);
@@ -23,10 +21,7 @@ gulp.task('typescript-build', function () {
 	var tsResult = tsProject.src()
 		.pipe(typescript(tsProject));
 		
-	return merge([
-	    tsResult.dts.pipe(gulp.dest('dist')),
-	    tsResult.js.pipe(gulp.dest('dist'))
-	    ]);		
+	return tsResult.js.pipe(gulp.dest('dist'));		
 });
 
 gulp.task('minify', function() {
