@@ -192,6 +192,6 @@ var AngularUIExtensions;
     uiExtensionsModule.service("NotificationService", AngularUIExtensions.NotificationService.$inject);
     uiExtensionsModule.controller("NotificationController", AngularUIExtensions.NotificationController.$inject);
     uiExtensionsModule.service("LoadingIndicatorService", AngularUIExtensions.LoadingIndicatorService.$inject);
-    uiExtensionsModule.directive("LoadingIndicatorDirective", AngularUIExtensions.LoadingIndicatorDirective.prototype.Injection());
+    uiExtensionsModule.directive("loadingIndicator", AngularUIExtensions.LoadingIndicatorDirective.prototype.Injection());
     uiExtensionsModule.factory("HttpInterceptorFactory", AngularUIExtensions.HttpInterceptorFactory.$inject);
 })();
