@@ -1,17 +1,17 @@
-var UIExtensions;
-(function (UIExtensions) {
+var UIExtensionsHelpers;
+(function (UIExtensionsHelpers) {
     "use strict";
     function nullOrUndefined(obj) {
         return (obj === null || obj === undefined);
     }
-    UIExtensions.nullOrUndefined = nullOrUndefined;
+    UIExtensionsHelpers.nullOrUndefined = nullOrUndefined;
     function padLeft(nr, count) {
         return Array(count - String(nr).length + 1).join('0') + nr;
     }
-    UIExtensions.padLeft = padLeft;
-})(UIExtensions || (UIExtensions = {}));
-var UIExtensions;
-(function (UIExtensions) {
+    UIExtensionsHelpers.padLeft = padLeft;
+})(UIExtensionsHelpers || (UIExtensionsHelpers = {}));
+var UIExtensionsNotificationService;
+(function (UIExtensionsNotificationService) {
     "use strict";
     var ModalSize;
     (function (ModalSize) {
@@ -38,7 +38,7 @@ var UIExtensions;
                 controller: 'notificationController',
                 size: modalSize.toString(),
                 resolve: resolve,
-                backdrop: UIExtensions.nullOrUndefined(force) ? true : (!force) ? true : 'static'
+                backdrop: UIExtensionsHelpers.nullOrUndefined(force) ? true : (!force) ? true : 'static'
             };
             return this.$modal.open(modalSettings);
         };
@@ -49,9 +49,9 @@ var UIExtensions;
         return NotificationService;
     })();
     angular.module("UIExtensionsModule").service("NotificationService", NotificationService.$inject);
-})(UIExtensions || (UIExtensions = {}));
-var UIExtensions;
-(function (UIExtensions) {
+})(UIExtensionsNotificationService || (UIExtensionsNotificationService = {}));
+var UIExtensionsNotificationController;
+(function (UIExtensionsNotificationController) {
     'use strict';
     var NotificationController = (function () {
         function NotificationController($scope, $location, $modalInstance, messages, title) {
@@ -91,9 +91,9 @@ var UIExtensions;
         return NotificationController;
     })();
     angular.module("UIExtensionsModule").controller("NotificationController", NotificationController.$inject);
-})(UIExtensions || (UIExtensions = {}));
-var UIExtensions;
-(function (UIExtensions) {
+})(UIExtensionsNotificationController || (UIExtensionsNotificationController = {}));
+var UIExtensionsLoadingIndicatorService;
+(function (UIExtensionsLoadingIndicatorService) {
     "use strict";
     var LoadingIndicatorService = (function () {
         function LoadingIndicatorService($rootScope) {
@@ -109,9 +109,9 @@ var UIExtensions;
         return LoadingIndicatorService;
     })();
     angular.module("UIExtensionsModule").service("LoadingIndicatorService", LoadingIndicatorService.$inject);
-})(UIExtensions || (UIExtensions = {}));
-var UIExtensions;
-(function (UIExtensions) {
+})(UIExtensionsLoadingIndicatorService || (UIExtensionsLoadingIndicatorService = {}));
+var UIExtensionsHttpInterceptorFactory;
+(function (UIExtensionsHttpInterceptorFactory) {
     'use strict';
     var HttpInterceptorFactory = (function () {
         function HttpInterceptorFactory($q, httpStatusCode, $injector) {
@@ -145,7 +145,7 @@ var UIExtensions;
         return HttpInterceptorFactory;
     })();
     angular.module("UIExtensionsModule").factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
-})(UIExtensions || (UIExtensions = {}));
+})(UIExtensionsHttpInterceptorFactory || (UIExtensionsHttpInterceptorFactory = {}));
 var UIExtensions;
 (function (UIExtensions) {
     "use strict";

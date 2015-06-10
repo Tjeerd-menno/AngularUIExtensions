@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensions {
+module UIExtensionsNotificationService {
 
     "use strict";
 
@@ -47,7 +47,7 @@ module UIExtensions {
                 controller: 'notificationController',
                 size: modalSize.toString(),
                 resolve: resolve,
-                backdrop: nullOrUndefined(force) ? true : (!force) ? true : 'static'
+                backdrop: UIExtensionsHelpers.nullOrUndefined(force) ? true : (!force) ? true : 'static'
             };
 
             return this.$modal.open(modalSettings);

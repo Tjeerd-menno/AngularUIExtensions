@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensions {
+module UIExtensionsLoadingIndicatorService {
 
     "use strict";
 

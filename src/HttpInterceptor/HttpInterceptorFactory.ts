@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensions {
+module UIExtensionsHttpInterceptorFactory {
     
 	'use strict';
     export interface IHttpStatusCode {
@@ -29,7 +29,7 @@ module UIExtensions {
                     var status: number = response.status;
                     var message: string = response.data.Message; 
                     
-                    var notificationService: INotificationService = $injector.get('NotificationService');
+                    var notificationService: UIExtensionsNotificationService.INotificationService = $injector.get('NotificationService');
                     var windowService: ng.IWindowService = $injector.get('$window');
 
                     switch (status) {

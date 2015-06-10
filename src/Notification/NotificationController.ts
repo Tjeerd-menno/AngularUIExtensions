@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensions {
+module UIExtensionsNotificationController {
     'use strict';
 
     export interface INotificationScope extends ng.IScope {

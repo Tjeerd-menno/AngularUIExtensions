@@ -1,4 +1,4 @@
-module UIExtensions {
+module UIExtensionsHelpers {
 
     "use strict";
 
