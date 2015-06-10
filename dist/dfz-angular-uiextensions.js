@@ -118,7 +118,7 @@ var AngularUIExtensions;
             var _this = this;
             this.replace = false;
             this.link = function (scope, element, attributes) { return _this.linkFn(scope, element, attributes); };
-            this.scope.filter = '@loadingIndicator';
+            this.scope = { filter: '@loadingIndicator' };
         }
         LoadingIndicatorDirective.prototype.Injection = function () {
             return [function () {

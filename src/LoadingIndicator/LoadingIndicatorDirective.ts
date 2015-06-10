@@ -11,7 +11,7 @@ module AngularUIExtensions {
     export class LoadingIndicatorDirective implements ng.IDirective {
 
         public replace: boolean;
-        public scope : ILoadingIndicatorScope;
+        public scope : any;
         public link: ($scope: ILoadingIndicatorScope, element: JQuery, attributes: any) => any;
 
         public Injection(): any[] {
@@ -22,7 +22,7 @@ module AngularUIExtensions {
             this.replace = false;
             this.link = (scope, element, attributes) => this.linkFn(scope, element, attributes);
 
-            this.scope.filter =  '@loadingIndicator';
+            this.scope = { filter : '@loadingIndicator' } ;
         }
 
         /*
