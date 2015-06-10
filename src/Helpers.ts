@@ -1,4 +1,4 @@
-module UIExtensionsHelpers {
+module AngularUIExtensions {
 
     "use strict";
 

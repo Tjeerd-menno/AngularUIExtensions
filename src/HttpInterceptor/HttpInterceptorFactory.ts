@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensionsHttpInterceptorFactory {
+module AngularUIExtensions {
     
 	'use strict';
     export interface IHttpStatusCode {
@@ -14,7 +14,7 @@ module UIExtensionsHttpInterceptorFactory {
         INTERNAL_SERVER_ERROR: number;
     }
 	
-    class HttpInterceptorFactory {
+    export class HttpInterceptorFactory {
         
         public static $inject = [ "$q",
         "HTTP_STATUS_CODES",
@@ -29,7 +29,7 @@ module UIExtensionsHttpInterceptorFactory {
                     var status: number = response.status;
                     var message: string = response.data.Message; 
                     
-                    var notificationService: UIExtensionsNotificationService.INotificationService = $injector.get('NotificationService');
+                    var notificationService: INotificationService = $injector.get('NotificationService');
                     var windowService: ng.IWindowService = $injector.get('$window');
 
                     switch (status) {
@@ -55,6 +55,4 @@ module UIExtensionsHttpInterceptorFactory {
             };
         }
     }
-
-    angular.module("UIExtensionsModule").factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
 }

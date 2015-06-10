@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensionsNotificationController {
+module AngularUIExtensions {
     'use strict';
 
     export interface INotificationScope extends ng.IScope {
@@ -10,7 +10,7 @@ module UIExtensionsNotificationController {
         cancel: Function;
     }
 
-    class NotificationController {
+    export class NotificationController {
 
         public static $inject = [
             '$scope',
@@ -51,7 +51,4 @@ module UIExtensionsNotificationController {
             this.$modalInstance.dismiss('cancel');
         }
     }
-    
-        angular.module("UIExtensionsModule").controller("NotificationController", NotificationController.$inject);
-
 }

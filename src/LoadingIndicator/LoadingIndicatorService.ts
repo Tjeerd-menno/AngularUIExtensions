@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensionsLoadingIndicatorService {
+module AngularUIExtensions {
 
     "use strict";
 
@@ -10,7 +10,7 @@ module UIExtensionsLoadingIndicatorService {
         stopLoading(section: string): void;
     }
 
-    class LoadingIndicatorService implements ILoadingIndicatorService {
+    export class LoadingIndicatorService implements ILoadingIndicatorService {
         
         public static $inject = ['$rootScope', LoadingIndicatorService];
 
@@ -25,6 +25,4 @@ module UIExtensionsLoadingIndicatorService {
             this.$rootScope.$broadcast('STOP-LOADING', section);
         }
     }
-
-    angular.module("UIExtensionsModule").service("LoadingIndicatorService", LoadingIndicatorService.$inject);
 }

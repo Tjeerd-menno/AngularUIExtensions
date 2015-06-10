@@ -1,17 +1,17 @@
-var UIExtensionsHelpers;
-(function (UIExtensionsHelpers) {
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     "use strict";
     function nullOrUndefined(obj) {
         return (obj === null || obj === undefined);
     }
-    UIExtensionsHelpers.nullOrUndefined = nullOrUndefined;
+    AngularUIExtensions.nullOrUndefined = nullOrUndefined;
     function padLeft(nr, count) {
         return Array(count - String(nr).length + 1).join('0') + nr;
     }
-    UIExtensionsHelpers.padLeft = padLeft;
-})(UIExtensionsHelpers || (UIExtensionsHelpers = {}));
-var UIExtensionsNotificationService;
-(function (UIExtensionsNotificationService) {
+    AngularUIExtensions.padLeft = padLeft;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     "use strict";
     var ModalSize;
     (function (ModalSize) {
@@ -38,7 +38,7 @@ var UIExtensionsNotificationService;
                 controller: 'notificationController',
                 size: modalSize.toString(),
                 resolve: resolve,
-                backdrop: UIExtensionsHelpers.nullOrUndefined(force) ? true : (!force) ? true : 'static'
+                backdrop: AngularUIExtensions.nullOrUndefined(force) ? true : (!force) ? true : 'static'
             };
             return this.$modal.open(modalSettings);
         };
@@ -48,10 +48,10 @@ var UIExtensionsNotificationService;
         ];
         return NotificationService;
     })();
-    angular.module("UIExtensionsModule").service("NotificationService", NotificationService.$inject);
-})(UIExtensionsNotificationService || (UIExtensionsNotificationService = {}));
-var UIExtensionsNotificationController;
-(function (UIExtensionsNotificationController) {
+    AngularUIExtensions.NotificationService = NotificationService;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     'use strict';
     var NotificationController = (function () {
         function NotificationController($scope, $location, $modalInstance, messages, title) {
@@ -90,10 +90,10 @@ var UIExtensionsNotificationController;
         ];
         return NotificationController;
     })();
-    angular.module("UIExtensionsModule").controller("NotificationController", NotificationController.$inject);
-})(UIExtensionsNotificationController || (UIExtensionsNotificationController = {}));
-var UIExtensionsLoadingIndicatorService;
-(function (UIExtensionsLoadingIndicatorService) {
+    AngularUIExtensions.NotificationController = NotificationController;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     "use strict";
     var LoadingIndicatorService = (function () {
         function LoadingIndicatorService($rootScope) {
@@ -108,10 +108,10 @@ var UIExtensionsLoadingIndicatorService;
         LoadingIndicatorService.$inject = ['$rootScope', LoadingIndicatorService];
         return LoadingIndicatorService;
     })();
-    angular.module("UIExtensionsModule").service("LoadingIndicatorService", LoadingIndicatorService.$inject);
-})(UIExtensionsLoadingIndicatorService || (UIExtensionsLoadingIndicatorService = {}));
-var UIExtensionsHttpInterceptorFactory;
-(function (UIExtensionsHttpInterceptorFactory) {
+    AngularUIExtensions.LoadingIndicatorService = LoadingIndicatorService;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     'use strict';
     var HttpInterceptorFactory = (function () {
         function HttpInterceptorFactory($q, httpStatusCode, $injector) {
@@ -144,10 +144,12 @@ var UIExtensionsHttpInterceptorFactory;
         HttpInterceptorFactory.$inject = ["$q", "HTTP_STATUS_CODES", "$injector", "$window", HttpInterceptorFactory];
         return HttpInterceptorFactory;
     })();
-    angular.module("UIExtensionsModule").factory("HttpInterceptorFactory", HttpInterceptorFactory.$inject);
-})(UIExtensionsHttpInterceptorFactory || (UIExtensionsHttpInterceptorFactory = {}));
-var UIExtensions;
-(function (UIExtensions) {
-    "use strict";
-    angular.module("UIExtensionsModule", ["ui.bootstrap"]);
-})(UIExtensions || (UIExtensions = {}));
+    AngularUIExtensions.HttpInterceptorFactory = HttpInterceptorFactory;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+(function () {
+    var uiExtensionsModule = angular.module("UIExtensionsModule", ['ui.bootstrap']);
+    uiExtensionsModule.service("NotificationService", AngularUIExtensions.NotificationService.$inject);
+    uiExtensionsModule.controller("NotificationController", AngularUIExtensions.NotificationController.$inject);
+    uiExtensionsModule.service("LoadingIndicatorService", AngularUIExtensions.LoadingIndicatorService.$inject);
+    uiExtensionsModule.factory("HttpInterceptorFactory", AngularUIExtensions.HttpInterceptorFactory.$inject);
+})();

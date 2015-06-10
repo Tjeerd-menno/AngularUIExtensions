@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-module UIExtensionsNotificationService {
+module AngularUIExtensions {
 
     "use strict";
 
@@ -20,7 +20,7 @@ module UIExtensionsNotificationService {
         showNotification(title: string, message: string, force?: boolean): ng.ui.bootstrap.IModalServiceInstance;    
     }
     
-    class NotificationService implements INotificationService {
+    export class NotificationService implements INotificationService {
 
         public static $inject = [
             '$modal',
@@ -47,12 +47,10 @@ module UIExtensionsNotificationService {
                 controller: 'notificationController',
                 size: modalSize.toString(),
                 resolve: resolve,
-                backdrop: UIExtensionsHelpers.nullOrUndefined(force) ? true : (!force) ? true : 'static'
+                backdrop: nullOrUndefined(force) ? true : (!force) ? true : 'static'
             };
 
             return this.$modal.open(modalSettings);
         }    
     }
-    
-    angular.module("UIExtensionsModule").service("NotificationService", NotificationService.$inject);
 }
