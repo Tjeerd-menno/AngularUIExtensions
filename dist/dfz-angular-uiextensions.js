@@ -112,6 +112,47 @@ var AngularUIExtensions;
 })(AngularUIExtensions || (AngularUIExtensions = {}));
 var AngularUIExtensions;
 (function (AngularUIExtensions) {
+    "use strict";
+    var LoadingIndicatorDirective = (function () {
+        function LoadingIndicatorDirective() {
+            var _this = this;
+            this.replace = false;
+            this.link = function (scope, element, attributes) { return _this.linkFn(scope, element, attributes); };
+            this.scope.filter = '@loadingIndicator';
+        }
+        LoadingIndicatorDirective.prototype.Injection = function () {
+            return [function () {
+                return new LoadingIndicatorDirective();
+            }];
+        };
+        LoadingIndicatorDirective.prototype.linkFn = function (scope, element, attributes) {
+            var _this = this;
+            var localScope = scope;
+            scope.$on('START-LOADING', function (e, filterValue) {
+                var filter = localScope.filter;
+                if (filter === filterValue) {
+                    LoadingIndicatorDirective.startLoading(localScope, element);
+                }
+            });
+            scope.$on('STOP-LOADING', function (e, filterValue) {
+                var filter = localScope.filter;
+                if (filter === filterValue) {
+                    _this.stopLoading(localScope, element);
+                }
+            });
+        };
+        LoadingIndicatorDirective.startLoading = function (scope, element) {
+            DFZ.StartLoadingPanel(element[0]);
+        };
+        LoadingIndicatorDirective.prototype.stopLoading = function (scope, element) {
+            DFZ.StopLoadingPanel(element[0]);
+        };
+        return LoadingIndicatorDirective;
+    })();
+    AngularUIExtensions.LoadingIndicatorDirective = LoadingIndicatorDirective;
+})(AngularUIExtensions || (AngularUIExtensions = {}));
+var AngularUIExtensions;
+(function (AngularUIExtensions) {
     'use strict';
     var HttpInterceptorFactory = (function () {
         function HttpInterceptorFactory($q, httpStatusCode, $injector) {
@@ -151,5 +192,6 @@ var AngularUIExtensions;
     uiExtensionsModule.service("NotificationService", AngularUIExtensions.NotificationService.$inject);
     uiExtensionsModule.controller("NotificationController", AngularUIExtensions.NotificationController.$inject);
     uiExtensionsModule.service("LoadingIndicatorService", AngularUIExtensions.LoadingIndicatorService.$inject);
+    uiExtensionsModule.directive("LoadingIndicatorDirective", AngularUIExtensions.LoadingIndicatorDirective.prototype.Injection());
     uiExtensionsModule.factory("HttpInterceptorFactory", AngularUIExtensions.HttpInterceptorFactory.$inject);
 })();

@@ -12,6 +12,7 @@
         "src/Notification/NotificationService.ts",
         "src/Notification/NotificationController.ts",
         "src/LoadingIndicator/LoadingIndicatorService.ts",
+        "src/LoadingIndicator/LoadingIndicatorDirective.ts",
         "src/HttpInterceptor/HttpInterceptorFactory.ts",
         "src/UIExtensionsModule.ts"
     ]
