@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>DFZ.Web.Packages.AngularUIExtensions</id>
+        <version>1.0.2</version>
+        <authors>Tjeerd.Douma</authors>
+        <owners>Tjeerd.Douma</owners>
+        <iconUrl>https://www.defriesland.nl/content/images/logo_DeFriesland.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>DFZ Extensions for AngularJS &amp; Bootstrap UI</description>
+        <copyright>Copyright 2015</copyright>
+    </metadata>
+    <files>
+        <file src="dist\dfz-angular-uiextensions.js" target="content\Scripts\dfz-angular-uiextensions.js" />
+        <file src="dist\dfz-angular-uiextensions.min.js" target="content\Scripts\dfz-angular-uiextensions.min.js" />
+    </files>
+</package>

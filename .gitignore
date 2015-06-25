@@ -12,3 +12,6 @@
 
 /typings
 
+nuget.exe
+/packages
+*.nupkg
